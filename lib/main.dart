@@ -1,10 +1,23 @@
-import 'dart:ffi';
-
+import 'quotes.dart';
 import 'package:flutter/material.dart';
+import 'new_widget.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  List<Quotes> quotes = [
+    Quotes(
+        text: "Be yourself; everyone else is already taken.",
+        Author: "Oscar Wilde"),
+    Quotes(
+        text: "A room without books is like a body without a soul",
+        Author: "Marcus Tullius Cicero"),
+    Quotes(
+        text: "Be the change that you wish to see in the world",
+        Author: "Mahatma Gandhi")
+  ];
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -106,9 +119,15 @@ class MyApp extends StatelessWidget {
                 )
               ],
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            NewWidget(quotes: quotes),
           ],
         ),
       ),
     );
   }
 }
+
+
